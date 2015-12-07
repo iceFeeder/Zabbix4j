@@ -25,7 +25,9 @@
 package com.zabbix4j.action;
 
 import com.zabbix4j.ZabbixApiResponse;
+import com.zabbix4j.action.ActionCreateRequest.Params.Filter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,17 +35,34 @@ import java.util.List;
  */
 public class ActionGetResponse extends ZabbixApiResponse {
 
-    private List<ActionObject> result;
+    private List<Result> result=new ArrayList<Result>();
 
     public ActionGetResponse() {
         super();
     }
 
-    public List<ActionObject> getResult() {
+    public List<Result> getResult() {
         return result;
     }
 
-    public void setResult(List<ActionObject> result) {
+    public void setResult(List<Result> result) {
         this.result = result;
+    }
+    public class Result extends ActionObject{
+    	private List<ActionOperation> operations;
+    	private Filter filter;
+		public List<ActionOperation> getOperations() {
+			return operations;
+		}
+		public void setOperations(List<ActionOperation> operations) {
+			this.operations = operations;
+		}
+		public Filter getFilter() {
+			return filter;
+		}
+		public void setFilter(Filter filter) {
+			this.filter = filter;
+		}
+    	
     }
 }

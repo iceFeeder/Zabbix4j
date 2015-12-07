@@ -42,7 +42,15 @@ public class ActionDeleteResponse extends ZabbixApiResponse {
         super();
     }
 
-    @Data
+    public Result getResult() {
+		return result;
+	}
+
+	public void setResult(Result result) {
+		this.result = result;
+	}
+
+	@Data
     public class Result {
         private List<Integer> actionids;
 

@@ -27,6 +27,7 @@ package com.zabbix4j;
 import com.zabbix4j.utils.ZbxListUtils;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Suguru Yajima on 2014/05/02.
@@ -39,15 +40,16 @@ public class GetRequestCommonParams {
     private List<Integer> nodeids;
     private String output = "extend";
     private Boolean preservekeys;
-    private String search;
+    private Map search;
     private Boolean searchByAny;
     private Boolean searchWildcardsEnabled;
-    private List<SortOrder> sortorder;
+    private List<String> sortorder;
     private String startSearch;
     private Integer limitSelects;
     private List<String> sortfield;
     private String selectConditions;
     private String selectOperations;
+    private String selectFilter;
 
     public GetRequestCommonParams() {
     }
@@ -180,11 +182,11 @@ public class GetRequestCommonParams {
         return preservekeys;
     }
 
-    public String getSearch() {
+    public Map getSearch() {
         return search;
     }
 
-    public void setSearch(String search) {
+    public void setSearch(Map search) {
         this.search = search;
     }
 
@@ -204,11 +206,11 @@ public class GetRequestCommonParams {
         this.sortfield = sortfield;
     }
 
-    public List<SortOrder> getSortorder() {
+    public List<String> getSortorder() {
         return sortorder;
     }
 
-    public void setSortorder(List<SortOrder> sortorder) {
+    public void setSortorder(List<String> sortorder) {
         this.sortorder = sortorder;
     }
 
@@ -220,12 +222,19 @@ public class GetRequestCommonParams {
         this.startSearch = startSearch;
     }
 
-    public void setSortOrder(SortOrder order) {
-        sortorder = ZbxListUtils.add(sortorder, order);
-
+    public void addSortOrder(String order) {
+    	this.sortorder = ZbxListUtils.add(sortorder, order);
     }
 
-    public class SortOrder {
+    public String getSelectFilter() {
+		return selectFilter;
+	}
+
+	public void setSelectFilter(String selectFilter) {
+		this.selectFilter = selectFilter;
+	}
+
+	public class SortOrder {
         private String sortfield;
         private String order;
 

@@ -44,10 +44,10 @@ public class ActionOperation {
     private List<Integer> opcommand_grp;
     private List<Integer> opcommand_hst;
     private List<OperationCondition> opconditions;
-    private List<Integer> opgroup;
+    private List<OperationGroup> opgroup;
     private OperationMessage opmessage;
     private List<OperationMessageGroup> opmessage_grp;
-    private List<Integer> opmessage_usr;
+    private List<OperationMessageUser> opmessage_usr;
     private List<Integer> optemplate;
 
     public ActionOperation() {
@@ -77,11 +77,11 @@ public class ActionOperation {
         opconditions = ZbxListUtils.add(opconditions, oc);
     }
 
-    public void addOpgroup(Integer id) {
+    public void addOpgroup(OperationGroup id) {
         opgroup = ZbxListUtils.add(opgroup, id);
     }
 
-    public void addOpmessageUsr(Integer id) {
+    public void addOpmessageUsr(OperationMessageUser id) {
         opmessage_usr = ZbxListUtils.add(opmessage_usr, id);
     }
 
@@ -181,11 +181,11 @@ public class ActionOperation {
         this.opconditions = opconditions;
     }
 
-    public List<Integer> getOpgroup() {
+    public List<OperationGroup> getOpgroup() {
         return opgroup;
     }
 
-    public void setOpgroup(List<Integer> opgroup) {
+    public void setOpgroup(List<OperationGroup> opgroup) {
         this.opgroup = opgroup;
     }
 
@@ -197,11 +197,11 @@ public class ActionOperation {
         this.opmessage = opmessage;
     }
 
-    public List<Integer> getOpmessage_usr() {
+    public List<OperationMessageUser> getOpmessage_usr() {
         return opmessage_usr;
     }
 
-    public void setOpmessage_usr(List<Integer> opmessage_usr) {
+    public void setOpmessage_usr(List<OperationMessageUser> opmessage_usr) {
         this.opmessage_usr = opmessage_usr;
     }
 

@@ -25,6 +25,8 @@
 package com.zabbix4j.trigger;
 
 import com.zabbix4j.ZabbixApiResponse;
+import com.zabbix4j.host.HostObject;
+import com.zabbix4j.item.ItemObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +53,8 @@ public class TriggerGetResponse extends ZabbixApiResponse {
     public class Result extends TriggerObject {
 
         private List<FunctionObject> functions;
+        private List<ItemObject> items;
+        private List<HostObject> hosts;
 
         public Result() {
             super();
@@ -63,5 +67,21 @@ public class TriggerGetResponse extends ZabbixApiResponse {
         public void setFunctions(List<FunctionObject> functions) {
             this.functions = functions;
         }
+        
+        public List<ItemObject> getItems(){
+            return items;
+        }
+        
+        public void setItems(List <ItemObject> items){
+            this.items = items;
+        }
+
+		public List<HostObject> getHosts() {
+			return hosts;
+		}
+
+		public void setHosts(List<HostObject> hosts) {
+			this.hosts = hosts;
+		}
     }
 }

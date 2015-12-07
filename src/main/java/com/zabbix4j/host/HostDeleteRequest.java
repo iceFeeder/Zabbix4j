@@ -35,35 +35,22 @@ import java.util.List;
  */
 public class HostDeleteRequest extends ZabbixApiRequest {
 
-    private List<Params> params = new ArrayList<Params>();
+    private List<Integer> params = new ArrayList<Integer>();
 
     public HostDeleteRequest() {
         setMethod("host.delete");
     }
 
-    public List<Params> getParams() {
+    public List<Integer> getParams() {
         return params;
     }
 
-    public void setParams(List<Params> params) {
+    public void setParams(List<Integer> params) {
         this.params = params;
     }
 
     public void addParams(int hostid) {
-        this.params = ZbxListUtils.add(this.params, new Params(hostid));
+        this.params.add(hostid);
     }
-
-    public class Params {
-
-        private Integer hostid;
-
-        public Params(Integer hostid) {
-
-            this.hostid = hostid;
-        }
-
-        public Params() {
-        }
-    }
-
+ 
 }

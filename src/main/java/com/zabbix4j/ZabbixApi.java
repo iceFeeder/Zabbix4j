@@ -90,6 +90,10 @@ public class ZabbixApi {
 
         this.auth = response.getResult();
     }
+    
+    public User user(){
+    	return new User(this.apiUrl,this.auth);
+    }
 
     public Hostgroup hostgroup() {
 

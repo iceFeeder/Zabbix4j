@@ -37,6 +37,10 @@ public class User extends ZabbixApiMethod {
     public User (String apiUrl) {
         super(apiUrl, null);
     }
+    
+    public User (String apiUrl,String auth){
+    	super(apiUrl, auth);
+    }
 
     public UserLoginResponse login (UserLoginRequest request) throws ZabbixApiException {
         UserLoginResponse response = null;
@@ -54,5 +58,22 @@ public class User extends ZabbixApiMethod {
         }
 
         return response;
+    }
+    
+    public UserGetResponse get (UserGetRequest request) throws ZabbixApiException {
+    	UserGetResponse response = null;
+    	request.setAuth(auth);
+    	Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        String requestJson = gson.toJson(request);
+        try {
+            String responseJson = sendRequest(requestJson);
+
+            response = gson.fromJson(responseJson, UserGetResponse.class);
+        } catch (ZabbixApiException e) {
+            throw new ZabbixApiException(e);
+        }
+    	
+    	return response;
     }
 }

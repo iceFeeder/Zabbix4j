@@ -7,6 +7,7 @@ import com.zabbix4j.graph.GraphObject;
 import com.zabbix4j.hostgroup.HostgroupObject;
 import com.zabbix4j.hostinteface.HostInterfaceObject;
 import com.zabbix4j.item.ItemObject;
+import com.zabbix4j.template.TemplateObject;
 import com.zabbix4j.trigger.TriggerObject;
 import com.zabbix4j.usermacro.Macro;
 
@@ -37,7 +38,7 @@ public class HostGetResponse extends ZabbixApiResponse {
         // TODO: implement a variable
         //private List<Template> parentTemplates;
         private List<ItemObject> items;
-// TODO: implement a variable
+        // TODO: implement a variable
         //private List<Discoveriy> discoveries;
 
         private List<TriggerObject> triggers;
@@ -54,6 +55,8 @@ public class HostGetResponse extends ZabbixApiResponse {
         //private List<screens> screens;
         private List<DiscoveryRuleObject> discoveryRule;
         private List<HostObject> hostDiscovery;
+        //
+        private List<TemplateObject> parentTemplates;
 
         public List<HostObject> getHostDiscovery() {
             return hostDiscovery;
@@ -126,5 +129,14 @@ public class HostGetResponse extends ZabbixApiResponse {
         public void setGroups(List<HostgroupObject> groups) {
             this.groups = groups;
         }
+
+        public List<TemplateObject> getParentTemplates() {
+            return parentTemplates;
+        }
+
+        public void setParentTemplates(List<TemplateObject> parentTemplates) {
+            this.parentTemplates = parentTemplates;
+        }
+
     }
 }

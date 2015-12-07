@@ -21,6 +21,7 @@ public class UserObject {
     private String theme;
     private Integer type;
     private String url;
+    private String attempt_ip;
 
     public Date getAttemptClock() {
         if (attempt_clock != null && attempt_clock != 0) {
@@ -281,7 +282,15 @@ public class UserObject {
         this.attempt_clock = attempt_clock;
     }
 
-    public static enum AUTO_LOGIN {
+    public String getAttempt_ip() {
+		return attempt_ip;
+	}
+
+	public void setAttempt_ip(String attempt_ip) {
+		this.attempt_ip = attempt_ip;
+	}
+
+	public static enum AUTO_LOGIN {
         DISABLED(0), ENABLED(1);
         public int value;
 

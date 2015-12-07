@@ -7,7 +7,7 @@ public class FunctionObject {
     private Integer functionid;
     private Integer itemid;
     private String function;
-    private Integer parameter;
+    private String parameter;
 
     public FunctionObject() {
     }
@@ -36,11 +36,11 @@ public class FunctionObject {
         this.function = function;
     }
 
-    public Integer getParameter() {
+    public String getParameter() {
         return parameter;
     }
 
-    public void setParameter(Integer parameter) {
+    public void setParameter(String parameter) {
         this.parameter = parameter;
     }
 }

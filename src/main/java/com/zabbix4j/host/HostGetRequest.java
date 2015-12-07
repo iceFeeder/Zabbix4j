@@ -72,6 +72,7 @@ public class HostGetRequest extends ZabbixApiRequest {
         private String selectGraphs;
         private String selectHostDiscovery;
         private String selectHttpTests;
+         
         private String selectInterfaces;
         private String selectInventory;
         private String selectItems;
@@ -79,6 +80,19 @@ public class HostGetRequest extends ZabbixApiRequest {
         private String selectParentTemplates;
         private String selectScreens;
         private String selectTriggers;
+        private Filter filter = new Filter();
+
+        public class Filter{
+            private String host;
+
+            public String getHost() {
+                return host;
+            }
+
+            public void setHost(String host) {
+                this.host = host;
+            }
+        }
 
         public Params() {
         }
@@ -326,6 +340,14 @@ public class HostGetRequest extends ZabbixApiRequest {
 
         public void setGraphId(int id) {
             graphids = ZbxListUtils.add(graphids, id);
+        }
+
+        public Filter getFilter() {
+            return filter;
+        }
+
+        public void setFilter(Filter filter) {
+            this.filter = filter;
         }
     }
 

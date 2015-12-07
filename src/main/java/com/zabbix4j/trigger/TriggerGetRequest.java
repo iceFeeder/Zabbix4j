@@ -69,8 +69,19 @@ public class TriggerGetRequest extends ZabbixApiRequest {
         private String selectDependencies;
         private String selectDiscoveryRule;
         private String selectLastEvent;
-        private String filter;
-        private Integer limitSelects;
+        private Filter filter = new Filter();
+        
+        public class Filter{
+            private String description;
+            
+            public String getDescription(){
+                return description;
+            }
+            
+            public void setDescription(String description){
+                this.description = description;
+            }
+        }
 
         public Params() {
             super();
@@ -256,20 +267,12 @@ public class TriggerGetRequest extends ZabbixApiRequest {
             this.selectLastEvent = selectLastEvent;
         }
 
-        public String getFilter() {
+        public Filter getFilter() {
             return filter;
         }
 
-        public void setFilter(String filter) {
+        public void setFilter(Filter filter) {
             this.filter = filter;
-        }
-
-        public Integer getLimitSelects() {
-            return limitSelects;
-        }
-
-        public void setLimitSelects(Integer limitSelects) {
-            this.limitSelects = limitSelects;
         }
     }
 

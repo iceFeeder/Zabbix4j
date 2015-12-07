@@ -39,7 +39,15 @@ public class ActionDeleteRequest extends ZabbixApiRequest {
 
     private List<Integer> params = new ArrayList<Integer>();
 
-    public ActionDeleteRequest() {
+    public List<Integer> getParams() {
+		return params;
+	}
+
+	public void setParams(List<Integer> params) {
+		this.params = params;
+	}
+
+	public ActionDeleteRequest() {
         setMethod("action.delete");
     }
 

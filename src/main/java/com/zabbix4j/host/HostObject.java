@@ -61,7 +61,8 @@ public class HostObject {
     private Integer jmx_errors_from;
     private String jmx_error;
     private String name;
-
+    private String description;
+    
     public HostObject() {
     }
 
@@ -303,5 +304,13 @@ public class HostObject {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
